@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+    
+    "corsheaders",
     "rest_framework",
 
     "accounts.apps.AccountsConfig",
@@ -26,6 +27,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
 
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -111,3 +113,22 @@ REST_FRAMEWORK = {
 
 # Для SPA?? типа удобнее разрешить отдавать index.html и внутри React рулит роутингом
 APPEND_SLASH = False
+
+
+# ======================
+# Frontend (React / Webpack / Yarn)
+# ======================
+
+# Разрешаем запросы с фронта (DEV)
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# CSRF для session auth
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",  # CRA
+    "http://localhost:5173",  # Vite / Webpack dev server
+]
+
+# Cookies для браузера
+CSRF_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_SAMESITE = "Lax"
