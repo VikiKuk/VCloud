@@ -49,3 +49,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Yarn
+.yarn/cache/
+.pnp.*
+.yarn/install-state.gz
