@@ -54,13 +54,13 @@ Backend реализует REST API для:
 Пример (`.env.example`):
 
 ```env
-DJANGO_SECRET_KEY=dev-secret
+DJANGO_SECRET_KEY=dev-secret-change-me
 DJANGO_DEBUG=1
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
 
 DB_NAME=cloud_storage
 DB_USER=cloud_user
-DB_PASSWORD=cloud_pass
+DB_PASSWORD=your_password_here
 DB_HOST=127.0.0.1
 DB_PORT=5432
 ```
@@ -81,9 +81,8 @@ python manage.py migrate
 - автоматически создаются все таблицы
 - автоматически создаётся администратор
 
-Администратор по умолчанию:
-- login: admin
-- password: Admin1!
+Данные администратора задаются через переменные окружения
+или могут быть изменены вручную в базе данных / Django admin.
 
 ### ▶️ Запуск backend
 
@@ -101,11 +100,14 @@ Backend будет доступен по адресу: http://127.0.0.1:8000
 - CORS настроен для frontend dev-сервера
 
 Основные эндпоинты:
-/api/auth/register
-/api/auth/login
-/api/auth/logout
-/api/auth/me
-/api/files/*
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
+- `GET  /api/auth/me`
+- `GET  /api/files/`
+- `POST /api/files/upload`
+- `DELETE /api/files/{id}`
 
 
 ## 🎨 Frontend
