@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import Logo from "../components/layout/Logo";
-import Button from "../components/ui/Button";
-import TextField from "../components/ui/TextField";
 import { loginUser } from "../features/auth/authSlice";
+import AuthLayout from "../components/layout/AuthLayout";
 
+import Button from "../components/ui/Button";
+import Input from "../components/ui/Input";
+
+import styles from "./AuthPage.module.css";
+
+console.log("AuthPage styles:", styles);
 export default function AuthPage() {
   const dispatch = useDispatch();
   const nav = useNavigate();
@@ -33,56 +37,52 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="page">
-      <div className="panel">
-        <div className="topRow">
-          <Logo />
-        </div>
+    <AuthLayout
+      left={
+        <>
+          <h1 className={styles.h1}>Вход</h1>
 
-        <div className="grid2">
-          {/* левая колонка */}
-          <div>
-            <h1 className="h1">Вход</h1>
+          <p className={styles.p}>
+            Приложение позволяет загружать, скачивать, переименовывать и удалять файлы,
+            а также создавать публичные ссылки для скачивания
+          </p>
 
-            <p className="p">
-              Приложение позволяет загружать, скачивать, переименовывать и удалять файлы,
-              а также создавать публичные ссылки для скачивания
-            </p>
+          <div className={styles.actionsRow}>
+            {/* белая кнопка */}
+            <Button variant="ghost" onClick={() => nav("/register")}>
+              Создать аккаунт
+            </Button>
 
-            <div className="actionsRow" style={{ justifyContent: "flex-start", marginTop: 28 }}>
-              <Button variant="default" onClick={() => nav("/register")}>
-                Создать аккаунт
-              </Button>
-
-              {/* сабмитим форму справа */}
-              <Button variant="default" type="submit" form="loginForm">
-                Далее
-              </Button>
-            </div>
+            {/* белая кнопка, сабмит формы справа */}
+            <Button variant="ghost" type="submit" form="loginForm">
+              Далее
+            </Button>
+          </div>
+        </>
+      }
+      right={
+        <div className={styles.rightForm}>
+          <div className={styles.errorSlot}>
+            {err ? <div className={styles.errorBox}>{err}</div> : null}
           </div>
 
-          {/* правая колонка */}
-          <div style={{ paddingTop: 20 }}>
-            {err && <div className="errorBox">{err}</div>}
+          <form id="loginForm" onSubmit={onSubmit} className={styles.form}>
+            <Input
+              label="Login"
+              value={login}
+              onChange={(e) => setLogin(e.target.value)}
+              autoFocus
+            />
 
-            <form id="loginForm" onSubmit={onSubmit}>
-              <TextField
-                label="Login"
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
-                autoFocus
-              />
-
-              <TextField
-                label="Пароль"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </form>
-          </div>
+            <Input
+              label="Пароль"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </form>
         </div>
-      </div>
-    </div>
+      }
+    />
   );
 }

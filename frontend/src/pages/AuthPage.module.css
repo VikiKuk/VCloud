@@ -1,0 +1,44 @@
+.h1{
+  font-size: 54px;
+  line-height: 1;
+  margin: 10px 0 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.p{
+  max-width: 520px;
+  font-size: 20px;
+  line-height: 1.45;
+  color: rgba(15,23,42,.85);
+  margin: 0;
+}
+
+.actionsRow{
+  display: flex;
+  gap: 18px;
+  margin-top: 28px;
+  justify-content: flex-start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+
+.errorSlot {
+  min-height: 40px; /* резервируем место */
+  margin-bottom: 25px;
+}
+
+.errorBox {
+  background: #ffe7e7;
+  border: 1px solid #ffb5b5;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #8a0000;
+  font-size: 14px;
+}
+

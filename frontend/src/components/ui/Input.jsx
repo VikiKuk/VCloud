@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 
 export default function TextField({ label, value, onChange, type = "text", placeholder = "", autoFocus = false }) {
   return (
@@ -12,6 +12,18 @@ export default function TextField({ label, value, onChange, type = "text", place
         placeholder={placeholder}
         autoFocus={autoFocus}
       />
+    </div>
+  );
+}*/
+
+import React from "react";
+import styles from "./Input.module.css";
+
+export default function Input({ label, ...props }) {
+  return (
+    <div className={styles.wrap}>
+      {label ? <div className={styles.label}>{label}</div> : null}
+      <input className={styles.input} {...props} />
     </div>
   );
 }
