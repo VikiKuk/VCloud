@@ -1,31 +1,32 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
 import { initAuth } from "../features/auth/authSlice";
-import NavBar from "../components/NavBar";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import AdminUsers from "../pages/AdminUsers";
-import Storage from "../pages/Storage";
+
+import AuthPage from "../pages/AuthPage";
+import RegisterPage from "../pages/RegisterPage";
+import FilesPage from "../pages/Storage";
+import AdminPage from "../pages/AdminUsers";
 
 export default function App() {
   const dispatch = useDispatch();
-  const user = useSelector(s => s.auth.user);
+  const user = useSelector((s) => s.auth.user);
 
-  useEffect(() => { dispatch(initAuth()); }, [dispatch]);
+  useEffect(() => {
+    dispatch(initAuth());
+  }, [dispatch]);
+
+  const isAdmin = !!user?.is_admin;
 
   return (
-    <div className="container">
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={user ? <Navigate to="/storage" /> : <Login />} />
-        <Route path="/register" element={user ? <Navigate to="/storage" /> : <Register />} />
-        <Route path="/storage" element={user ? <Storage /> : <Navigate to="/login" />} />
-        <Route path="/admin" element={user?.is_admin ? <AdminUsers /> : <Navigate to="/" />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={user ? <Navigate to={isAdmin ? "/admin" : "/app"} /> : <AuthPage />} />
+      <Route path="/register" element={user ? <Navigate to={isAdmin ? "/admin" : "/app"} /> : <RegisterPage />} />
+      <Route path="/app" element={user ? <FilesPage /> : <Navigate to="/" />} />
+      <Route path="/admin" element={user ? <AdminPage /> : <Navigate to="/" />} />
+
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
