@@ -1,0 +1,62 @@
+:root{
+  --topbar-h: 92px;
+  --content-x: 22px;
+  --topbar-mt: 22px;
+}
+
+/* главный контейнер страницы */
+.main{
+  position: relative;
+  min-height: 100%;
+}
+
+/* верхняя сцена: welcome + topbar поверх */
+.topRegion{
+  position: relative;
+  min-height: var(--topbar-h);
+}
+
+/* welcome лежит в обычном потоке и может быть перекрыт topbar */
+.welcome{
+  padding: 16px var(--content-x) 8px;
+}
+
+.welcomeTitle{
+  margin: 0;
+  font-size: 27px;       
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* слой topbar поверх welcome */
+.topBarOverlay{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+
+/* контент ниже slot */
+.content{
+  padding: 18px var(--content-x) 26px;
+}
+
+
+.header{
+  margin-bottom: 16px;
+}
+
+.h2{
+  margin: 0;
+  font-size: 45px;
+  line-height: 1;
+}
+
+.error{
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #ffe7e7;
+  border: 1px solid #ffb5b5;
+}

@@ -6,8 +6,8 @@ import { initAuth } from "../features/auth/authSlice";
 
 import AuthPage from "../pages/AuthPage";
 import Register from "../pages/Register";
-import FilesPage from "../pages/Storage";
-import AdminPage from "../pages/AdminUsers";
+import FilesPage from "../pages/FilesPage";
+import AdminPage from "../pages/AdminPage";
 
 export default function App() {
   const dispatch = useDispatch();

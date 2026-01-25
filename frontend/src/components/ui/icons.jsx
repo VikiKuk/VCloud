@@ -29,11 +29,47 @@ export function IconClose({ size = 18 }) {
   );
 }
 
-export function IconLink({ size = 18 }) {
+export function IconLink({ size = 20 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M10 13a5 5 0 007 0l1-1a5 5 0 00-7-7l-1 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-      <path d="M14 11a5 5 0 01-7 0l-1 1a5 5 0 007 7l1-1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M3.9 12c0-1.16.94-2.1 2.1-2.1h4v-2h-4a4.1 4.1 0 1 0 0 8.2h4v-2h-4A2.1 2.1 0 0 1 3.9 12Zm6.1 1h4v-2h-4v2Zm8-5.1h-4v2h4a2.1 2.1 0 1 1 0 4.2h-4v2h4a4.1 4.1 0 1 0 0-8.2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function IconCopy({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="9"
+        y="9"
+        width="10"
+        height="10"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
     </svg>
   );
 }

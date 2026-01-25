@@ -1,0 +1,27 @@
+.wrap{
+  position: absolute;
+  right: 34px;
+  top: 104px; /* под FileTopBar */
+  width: 220px;
+  background: #fff;
+  border: 1px solid rgba(17,24,39,.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(17,24,39,.14);
+  padding: 8px;
+  z-index: 20;
+}
+
+.item{
+  width: 100%;
+  text-align: left;
+  padding: 12px 12px;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.item:hover{
+  background: rgba(17,24,39,.05);
+}

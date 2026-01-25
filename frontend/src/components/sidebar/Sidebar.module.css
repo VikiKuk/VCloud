@@ -1,0 +1,82 @@
+.sidebar{
+  width: 280px;
+  background: #fff;
+  border-right: 1px solid rgba(17,24,39,.08);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 56px);
+}
+
+.brand{
+  font-weight: 800;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.userBlock{
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.userLabel{
+  color: rgba(17,24,39,.55);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.userName{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.actions{
+  margin: 12px 0 18px;
+}
+
+.uploadBtn{
+  width: 100%;
+  justify-content: center;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.navItem{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 0;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.navItem:hover{
+  background: #eef0f3;
+}
+
+.active{
+  background: rgba(247,213,71,.45);
+}
+
+.navIcon{
+  width: 22px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.footer{
+  margin-top: auto;
+}
+
+.logoutBtn{
+  width: 100%;
+  justify-content: center;
+}
