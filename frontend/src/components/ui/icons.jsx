@@ -95,3 +95,46 @@ export function IconDownload({ size = 18 }) {
     </svg>
   );
 }
+
+export function IconFile({ ext = "", size = 56 }) {
+  const label = ext ? ext.toUpperCase() : "FILE";
+
+  return (
+    <div style={{ position: "relative" }}>
+      <svg
+        width={size}
+        height={Math.round(size * 64 / 56)} 
+        viewBox="0 0 56 64"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M10 2h24l12 12v46a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
+          fill="#EEF2FF"
+        />
+        <path d="M34 2v12h12" fill="#DDE3FF" />
+        <path d="M34 2l12 12H34V2z" fill="#CBD5FF" />
+        <rect x="14" y="26" width="28" height="4" rx="2" fill="#9CA3AF" />
+        <rect x="14" y="34" width="22" height="4" rx="2" fill="#9CA3AF" />
+        <rect x="14" y="42" width="18" height="4" rx="2" fill="#9CA3AF" />
+      </svg>
+
+      {/* бейдж расширения */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: -6,
+          right: -10,
+          fontSize: 11,
+          background: "rgba(17,24,39,.85)",
+          color: "#fff",
+          padding: "3px 6px",
+          borderRadius: 999,
+          lineHeight: 1,
+        }}
+      >
+        {label}
+      </div>
+    </div>
+  );
+}

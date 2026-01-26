@@ -48,12 +48,9 @@ export default function AuthPage() {
           </p>
 
           <div className={styles.actionsRow}>
-            {/* белая кнопка */}
             <Button variant="ghost" onClick={() => nav("/register")}>
               Создать аккаунт
             </Button>
-
-            {/* белая кнопка, сабмит формы справа */}
             <Button variant="ghost" type="submit" form="loginForm">
               Далее
             </Button>

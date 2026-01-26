@@ -17,7 +17,7 @@ export default function AdminPage() {
   const authUser = useSelector((s) => s.auth.user);
   const { list, error } = useSelector((s) => s.users);
 
-  // защита: если вдруг не админ — в /app
+  // защита: если вдруг не админ - в /app
   useEffect(() => {
     if (authUser && !authUser.is_admin) nav("/app");
   }, [authUser, nav]);

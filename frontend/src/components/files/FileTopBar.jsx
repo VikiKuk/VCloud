@@ -17,7 +17,7 @@ export default function FileTopBar({
   onMore,
   onClose,
 }) {
-  // ESC закрывает
+
   useEffect(() => {
     if (!file) return;
 
@@ -32,15 +32,12 @@ export default function FileTopBar({
   if (!file) return null;
 
   const name = truncateMiddle(file.original_name || "file", 22);
-
-  // комментарий: фикс длина, троеточие в середине, но title показывает полный
   const commentRaw = file.comment || "";
   const comment = truncateMiddle(commentRaw, 34);
 console.log("selected file:", file);
   return (
     // backdrop: клик по нему закрывает bar
     <div className={styles.backdrop} onClick={() => onClose?.()}>
-      {/* сам bar: клики внутри НЕ должны закрывать */}
       <div className={styles.bar} onClick={(e) => e.stopPropagation()}>
         <div className={styles.left}>
           <div className={styles.fileName} title={file.original_name || ""}>

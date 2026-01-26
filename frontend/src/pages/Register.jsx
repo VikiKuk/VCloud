@@ -71,7 +71,6 @@ export default function Register() {
     }
   };
 
-  // Правая колонка — форма, как на макете
   const right = (
     <div>
       {(serverErr.general || serverErr.fieldErrors) && (

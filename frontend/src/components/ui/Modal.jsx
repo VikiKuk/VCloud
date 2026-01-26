@@ -27,9 +27,8 @@ export default function Modal({ open, title, children, onClose, width = 520 }) {
     <div
       className={styles.overlay}
       onMouseDown={(e) => {
-        // закрываем только если кликнули по фону (overlay), а не по окну
         if (e.target === e.currentTarget) {
-          e.stopPropagation(); // ✅ чтобы не дошло до FilesPage.main
+          e.stopPropagation(); // чтобы не дошло до FilesPage.main
           onClose?.();
         }
       }}

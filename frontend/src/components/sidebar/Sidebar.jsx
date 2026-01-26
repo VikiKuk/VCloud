@@ -17,17 +17,14 @@ export default function Sidebar({ active = "files", onNavigate }) {
   const onFileSelected = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    // сброс input, чтобы можно было выбрать тот же файл снова
     e.target.value = "";
 
-    // комментарий пока пустой (нужна модалка для комментария при загрузке)
     await dispatch(uploadFile({ file, comment: "" }));
-    await dispatch(fetchFiles()); // обновляем список
+    await dispatch(fetchFiles());
   };
 
   const onLogout = async () => {
     await dispatch(logoutUser());
-    // роутинг на уровне страницы
     onNavigate?.("logout");
   };
 

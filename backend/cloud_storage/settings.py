@@ -111,14 +111,10 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Для SPA?? типа удобнее разрешить отдавать index.html и внутри React рулит роутингом
 APPEND_SLASH = False
 
 
-# ======================
-# Frontend (React / Webpack / Yarn)
-# ======================
-
+# Frontend (React / Webpack)
 # Разрешаем запросы с фронта (DEV)
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
@@ -126,7 +122,7 @@ CORS_ALLOW_CREDENTIALS = True
 # CSRF для session auth
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",  # CRA
-    "http://localhost:5173",  # Vite / Webpack dev server
+    "http://localhost:5173",  # Webpack dev server
 ]
 
 # Cookies для браузера

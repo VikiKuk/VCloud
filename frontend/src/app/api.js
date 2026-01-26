@@ -12,7 +12,6 @@ export async function apiFetch(url, options = {}) {
   const csrf = getCookie("csrftoken");
   const headers = options.headers ? { ...options.headers } : {};
 
-  // JSON по умолчанию
   if (!(options.body instanceof FormData)) {
     headers["Content-Type"] = "application/json";
   }

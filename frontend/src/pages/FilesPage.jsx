@@ -27,10 +27,7 @@ export default function FilesPage() {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const [sp] = useSearchParams();
-
   const { files, error, user: filesOwner } = useSelector((s) => s.files);
-
-  // ✅ ВАЖНО: храним только id, а не объект
   const [selectedId, setSelectedId] = useState(null);
 
   // UI state
@@ -60,7 +57,7 @@ export default function FilesPage() {
     return list;
   }, [files]);
 
-  // ✅ Актуальный выбранный файл ВСЕГДА из стора
+  // выбранный файл всегда из стора
   const selectedFile = useMemo(() => {
     if (!selectedId) return null;
     return sortedFiles.find((f) => f.id === selectedId) || null;
@@ -100,7 +97,7 @@ export default function FilesPage() {
     setPublicLink("");
   };
 
-  // --- actions ---
+  //  actions 
   const onDownload = () => {
     if (!selectedId) return;
     window.location.href = `/api/files/${selectedId}/download`;
@@ -119,11 +116,7 @@ export default function FilesPage() {
     }
   };
 
-  const onCreateLink = async () => {
-    if (!selectedId) return;
-    const res = await dispatch(getPublicLink(selectedId)).unwrap();
-    setPublicLink(res.public_link || "");
-  };
+
 
   const onAskDelete = () => {
     if (!selectedId) return;
@@ -148,7 +141,6 @@ export default function FilesPage() {
     await dispatch(fetchFiles(userId ? { userId } : {}));
     setRenameOpen(false);
     setMenuOpen(false);
-    // selectedId оставляем — selectedFile подтянется из стора уже с новым именем ✅
   };
 
   const onOpenComment = () => {

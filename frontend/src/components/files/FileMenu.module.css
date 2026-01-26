@@ -1,7 +1,7 @@
 .wrap{
   position: absolute;
   right: 34px;
-  top: 104px; /* под FileTopBar */
+  top: 104px; 
   width: 220px;
   background: #fff;
   border: 1px solid rgba(17,24,39,.12);
