@@ -461,7 +461,7 @@ npm run build
 ```
 server {
   listen 80;
-  server_name 91.197.98.216;
+  server_name YOUR_NAME_SERVER;
 
   # React (webpack output)
   root /var/www/VCloud/backend/static/frontend;
