@@ -5,15 +5,45 @@ import styles from "../ui/Modal.module.css";
 import { IconCopy } from "../ui/icons";
 
 
+
+
+
 export default function ShareModal({ open, onClose, link }) {
   const onCopy = async () => {
     if (!link) return;
+
+    // HTTPS на секьюрного разворачивания на проде
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(link);
+        return;
+      } catch (e) {
+        console.warn("clipboard API failed, fallback", e);
+      }
+    }
+
+    // Fallback для HTTP
     try {
-      await navigator.clipboard.writeText(link);
+      const textarea = document.createElement("textarea");
+      textarea.value = link;
+
+      // чтобы не прыгал экран
+      textarea.style.position = "fixed";
+      textarea.style.top = "-1000px";
+      textarea.style.left = "-1000px";
+
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
     } catch (e) {
-      console.warn("clipboard failed", e);
+      console.error("copy failed", e);
+      alert("Не удалось скопировать ссылку");
     }
   };
+
 
   return (
     <Modal open={open} onClose={onClose} title="Поделиться">

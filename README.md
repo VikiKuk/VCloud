@@ -27,7 +27,7 @@ frontend/   # React + Webpack
 - django-cors-headers
 
 ### Frontend
-- Node.js **>= 18**
+- Node.js **>= 20**
 - React **>= 18**
 - Webpack **>= 5**
 - Redux Toolkit
