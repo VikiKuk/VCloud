@@ -9,9 +9,11 @@
 ---
 
 ## 📁 Структура проекта
+```
 VCloud/
 backend/    # Django + DRF
 frontend/   # React + Webpack
+```
 
 ---
 
