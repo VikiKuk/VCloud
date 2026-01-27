@@ -64,24 +64,6 @@ Backend реализует REST API для:
 Используется для установки окружения:
 `pip install -r requirements.txt`
 
-#### `backend/.env`
-Переменные окружения (секреты и настройки окружения).
-
-```
-env
-DJANGO_SECRET_KEY=dev-secret-change-me
-DJANGO_DEBUG=1
-DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
-
-DB_NAME=cloud_storage
-DB_USER=cloud_user
-DB_PASSWORD=your_password_here
-DB_HOST=127.0.0.1
-DB_PORT=5432
-```
-
-> `.env` не содержит реальные секреты, не коммитится в репозиторий.
-
 ---
 
 ### Django apps
