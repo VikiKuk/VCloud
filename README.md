@@ -1,12 +1,35 @@
 # VCloud Storage
 
-Дипломный проект: **облачное хранилище файлов** с backend на Django (REST API) и frontend на React.
+Проект: **облачное хранилище файлов** с backend на Django (REST API) и frontend на React.
 
 Проект состоит из двух независимых частей:
 - **Backend** — API, авторизация, работа с файлами и пользователями
 - **Frontend** — пользовательский интерфейс
 
+
+## 🖥️ Визуализация реализованного UI:
+
+<details>
+<summary><strong>👁️ Посмотреть</strong></summary>
+
+![sign in](frontend/public/signin.png)
+
+![admin](frontend/public/admin.png)
+
+![user](frontend/public/user.png)
+
+![user files](frontend/public/files.png)
+
+![file comment](frontend/public/comment.png)
+
+![dropdown](frontend/public/rename.png)
+
+![file rename](frontend/public/rename2.png)
+
+![file share](frontend/public/share.png)
+
 ---
+</details>
 
 ## 📁 Структура проекта
 ```
