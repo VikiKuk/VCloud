@@ -9,16 +9,16 @@
 
 ## 🖥️ Визуализация реализованного UI:
 
+![user files](frontend/public/files.png)
+
 <details>
-<summary><strong>👁️ Посмотреть</strong></summary>
+<summary><strong>👁️ Больше UI </strong></summary>
 
 ![sign in](frontend/public/signin.png)
 
 ![admin](frontend/public/admin.png)
 
 ![user](frontend/public/user.png)
-
-![user files](frontend/public/files.png)
 
 ![file comment](frontend/public/comment.png)
 
